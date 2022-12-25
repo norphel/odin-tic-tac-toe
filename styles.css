@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 6.5fr 0.5fr;
+    text-align: center;
+}
+.game-board {
+    --size: max(35vw, 320px);
+    width: var(--size);
+    height: var(--size);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.game-board > div {
+    outline: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+}
