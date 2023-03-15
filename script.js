@@ -6,21 +6,17 @@ const player = (name, mark) => {
 const gameBoard = (() => {
     let board = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']; // manual for now
     
-    return {board}
-})();
-const displayController = (() => {
-    const areas = document.querySelectorAll('.area');
-    areas.forEach((area) =>
-        area.addEventListener('click', (e) => {
-            console.log(e.target.id);
-        }));
-
-    const board = gameBoard.board;
     const renderGameBoard = () => {
-        for (let i = 0; i < board.length; i++) {
-            console.log(board[i]);
-        }
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => cell.textContent = board[cell.id]);
     }
     return {renderGameBoard}
 })();
-displayController.renderGameBoard();
+const displayController = (() => {
+    // const cells = document.querySelectorAll('.cell');
+    // cells.forEach((cell) =>
+    //     cell.addEventListener('click', (e) => {
+    //         console.log(e.target.id);
+    //     }));
+    // gameBoard.renderGameBoard();
+})();
