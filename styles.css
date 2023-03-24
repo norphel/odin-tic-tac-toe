@@ -8,6 +8,11 @@ body {
 h1 {
     font-size: 2rem;
 }
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
 .players {
     display: flex;
     justify-content: center;
@@ -34,7 +39,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5rem;
+    font-size: 80px;
 }
 .game-board > div:hover {
     background-color:rgb(200, 200, 200);
@@ -58,4 +63,7 @@ div[id="2"],
 div[id="5"],
 div[id="8"] {
     border-right: none;
+}
+.message {
+    font-size: 2rem;
 }
