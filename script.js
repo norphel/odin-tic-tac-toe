@@ -1,26 +1,34 @@
 const player = (name, mark) => {
     const getName = () => name;
     const getMark = () => mark;
-    return {getName, getMark};
+    return { getName, getMark };
 }
 
 const gameBoard = (() => {
     let board = []; 
     
     const getBoard = () => board;
+
     const markAlreadyExists = (index) => {
         if (board[index] === undefined) {
             return false;
         }
         return true;
     }
+
     const addPlayerMark = (index, playerMark) => {
         board[index] = playerMark;
     }
-    return {getBoard, markAlreadyExists, addPlayerMark};
+
+    const resetBoard = () => {
+        board = [];
+    }
+
+    return { getBoard, markAlreadyExists, addPlayerMark, resetBoard };
 })();
 
 const displayController = (() => {
+
     const renderGameBoard = (board) => {
         const cells = document.querySelectorAll('.cell');
         cells.forEach(cell => cell.textContent = board[cell.id]);
@@ -29,8 +37,13 @@ const displayController = (() => {
     const displayResult = (message) => {
         const msg = document.querySelector('.message');
         msg.textContent = message;
+        const replay = document.createElement('button');
+        replay.textContent = "Replay";
+        replay.setAttribute('class', 'replay');
+        msg.appendChild(replay);
     }
-    return {renderGameBoard, displayResult};
+
+    return { renderGameBoard, displayResult };
 })();
 
 const gameLogic = (() => {
@@ -57,6 +70,11 @@ const gameLogic = (() => {
             const result = wonOrTied(current_player.getMark()); 
             if (result.win === true) {
                 displayController.displayResult(current_player.getName() + ' wins!');
+                
+                //disable continuing of game once the current player wins
+                cells.forEach(cell => {
+                    cell.removeEventListener('click', addPlayerMark);
+                })
             } else if (result.tie === true) {
                 displayController.displayResult('Tie!');
             }
@@ -100,6 +118,6 @@ const gameLogic = (() => {
                 tie = true;
             }
         }
-        return { win, tie};
+        return { win, tie };
     }
 })();
