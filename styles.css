@@ -8,11 +8,6 @@ body {
 h1 {
     font-size: 2rem;
 }
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
 .players {
     display: flex;
     justify-content: center;
@@ -24,7 +19,7 @@ main {
 .players > div {
     border: 1px solid black;
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding: 8px 24px;
 }
 .game-board {
     --size: max(35vw, 320px);
@@ -66,4 +61,14 @@ div[id="8"] {
 }
 .message {
     font-size: 2rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.replay {
+    padding: 8px 24px;
+    font-size: 1rem;
+    border-radius: 15px;
 }
