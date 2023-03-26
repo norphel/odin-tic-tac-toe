@@ -22,9 +22,8 @@ h1 {
     padding: 8px 24px;
 }
 .game-board {
-    --size: max(35vw, 320px);
-    width: var(--size);
-    height: var(--size);
+    width: 360px;
+    height: 360px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -34,6 +33,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 120px;
+    width: 120px;
     font-size: 80px;
 }
 .game-board > div:hover {
