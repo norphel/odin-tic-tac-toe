@@ -33,8 +33,6 @@ const displayController = (() => {
 
     const renderPage = () => {
 
-        console.log('Called renderPage');
-
         const playerXName = document.getElementById('player-x-name').value;
         const playerOName = document.getElementById('player-o-name').value;
         const playerX = player(playerXName, 'X');
