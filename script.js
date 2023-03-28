@@ -176,9 +176,6 @@ const gameLogic = (() => {
     const playGame = () => {
         const [playerX, playerO] = displayController.getPlayers();
         let current_player = playerX;
-        const players = displayController.getPlayers();
-        console.log(players[0]);
-
 
         //add player mark
         const cells = document.querySelectorAll('.cell');
